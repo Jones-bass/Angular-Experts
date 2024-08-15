@@ -1,4 +1,4 @@
-export class ImdbFilmModel {
+export class FilmModel {
   items: Object[];
 
   constructor(items: Object[]) {
