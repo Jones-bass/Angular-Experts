@@ -1,1 +1,9 @@
-<h1>carousel works!</h1>
+<div class="carousel">
+  <mat-card>
+    <ng-container *ngIf="movies.length > 0">
+      <ng-container *ngFor="let movie of movies; let i = index">
+        <h1>{{ movie.title }}</h1>
+      </ng-container>
+    </ng-container>
+  </mat-card>
+</div>

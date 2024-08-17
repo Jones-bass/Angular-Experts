@@ -1,25 +1,30 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FilmService } from '../../services/film.service';
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-carousel',
   standalone: true,
-  imports: [],
+  imports: [CommonModule, MatCardModule, MatButtonModule, MatIconModule],
   templateUrl: './carousel.component.html',
-  styleUrl: './carousel.component.css'
+  styleUrls: ['./carousel.component.css']
 })
-export class CarouselComponent {
+
+export class CarouselComponent implements OnInit {
   public movies: any = [];
   currentMovie = 0;
 
-  constructor(private filmData: FilmService) { }
+  constructor(private filmService: FilmService) { }
 
   ngOnInit(): void {
     this.getMovies();
   }
 
   getMovies(): void {
-    this.filmData.getData().subscribe((data) => {
+    this.filmService.getData().subscribe((data) => {
       data.forEach((item) => {
         this.movies.push(item); 
         
@@ -29,7 +34,18 @@ export class CarouselComponent {
         return;
       });
 
-      console.log(this.movies);
+      /*
+      this.movies.forEach((movie: any) => {
+        this.filmService.getPosters(movie.id).subscribe((data) => {
+          console.log(data);
+          movie.image = data.posters[0].link;
+          this.filmService.putPosters(movie.id, movie);
+          return;
+        });
+      });
+
+      console.log(this.movies); */
+
     });
   }
 }
