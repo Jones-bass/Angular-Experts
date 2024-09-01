@@ -1,9 +1,32 @@
 <div class="carousel">
   <mat-card>
-    <ng-container *ngIf="movies.length > 0">
-      <ng-container *ngFor="let movie of movies; let i = index">
-        <h1>{{ movie.title }}</h1>
-      </ng-container>
+    <ng-container *ngFor="let movie of movies; let i = index">
+      <div *ngIf="i === currentMovie">
+        <mat-card-header [@slideAnimation]="animationType" class="slide-header">
+          <mat-card-title>
+            {{ movie.title }}
+          </mat-card-title>
+          <mat-card-subtitle>
+            {{ movie.year }}
+          </mat-card-subtitle>
+        </mat-card-header>
+
+        <img [src]="movie.image" class="slide-image" [@slideAnimation]="animationType" />
+
+        <mat-card-content [@slideAnimation]="animationType" class="slide-content">
+          <p>{{ movie.writer }}</p>
+          <p>
+            <b>{{ movie.imdbRating }}</b>
+          </p>
+        </mat-card-content>
+      </div>
     </ng-container>
+
+    <button class="control prev" mat-mini-fab aria-label="Previous" (click)="onPreviousClick()">
+      <mat-icon>arrow_back</mat-icon>
+    </button>
+    <button class="control next" mat-mini-fab aria-label="Next" (click)="onNextClick()">
+      <mat-icon>arrow_forward</mat-icon>
+    </button>    
   </mat-card>
 </div>

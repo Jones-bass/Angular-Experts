@@ -1,10 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CarouselComponent } from './views/carousel/carousel.component';
 
-export const routes: Routes = [
-  { path: '', component: CarouselComponent }, 
-];
+export const routes: Routes = [];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
