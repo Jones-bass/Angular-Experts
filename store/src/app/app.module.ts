@@ -10,12 +10,16 @@ import { MenuBarComponent } from './components/menu-bar/menu-bar.component';
 import { CardComponent } from './components/card/card.component';
 import { CardLabelComponent } from './components/card/card-label/card-label.component';
 import { CardPricingComponent } from './components/card/card-pricing/card-pricing.component';
+import { GameService } from './services/game.service';
+import { Data } from './services/data';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent, MenuBarComponent, CardComponent, CardLabelComponent, CardPricingComponent],
-  imports: [BrowserModule, AppRoutingModule, MatSlideToggleModule],
-  providers: [provideAnimationsAsync()],
+  imports: [HttpClientModule, BrowserModule, AppRoutingModule, MatSlideToggleModule],
+  providers: [Data, GameService, provideAnimationsAsync()],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
-export class AppModule {}
+
+export class AppModule { }

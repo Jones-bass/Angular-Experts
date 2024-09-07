@@ -1,4 +1,6 @@
 <div class="home_container">
-  <app-card gameCover="assets/bt-1.jpg" gameLabel="DIGITAL" gameType="DIGITAL | PS4" gamePrice="R$ 129,99"></app-card>
-  <app-card gameCover="assets/bt-4.jpg" gameLabel="EXCLUSIVE" gameType="DISC | PS5" gamePrice="R$ 159,99"></app-card>
+  <app-card *ngFor="let sale of listPreSale" gameCover="{{'assets/cover/'+sale.gameCover}}"
+    gameLabel="{{sale.gameLabel}}" gameType="{{sale.gameType}}" gamePrice="{{sale.gamePrice}}"
+    gameTitle="{{sale.gamePrice}}" gamePlatformTag="{{sale.gamePlatformTag}}">
+  </app-card>
 </div>
