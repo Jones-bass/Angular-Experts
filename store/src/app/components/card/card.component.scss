@@ -1,0 +1,35 @@
+.card_container {
+  position: relative;
+  width: 350px;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  margin-top: 10px;
+  justify-content: center;
+  border-radius: 8px;
+
+  &:hover {
+    border-radius: 8px;
+  }
+}
+
+.card_content {
+  padding: 0.5rem;
+}
+
+.card_img {
+  border-radius: 8px;
+  min-width: 100%;
+  height: fit-content;
+  transition-duration: 0.9s;
+
+  &:hover {
+    transform: scale(1.008);
+    filter: brightness(0.8);
+  }
+
+  &:focus {
+    border: 3px solid var(--c-accent-1-focus);
+  }
+}
